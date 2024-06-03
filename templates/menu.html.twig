@@ -1,0 +1,29 @@
+<div class="container-fluid fullColor">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ path('home') }}"><img src="{{asset("img/logo.jpg")}}" alt="logo" width="60px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto text-right">
+
+                {% if is_granted("IS_AUTHENTICATED_FULLY") %} {# si un utilisateur est connecté #}
+
+                <a class="nav-item nav-link" href="{{ path('home') }}">Accueil</a>
+                <a class="nav-item nav-link" href="{{ path('calendar') }}">Réservation</a>
+                <a class="nav-item nav-link" href="{{ path('programme') }}">Programme</a>
+                <!-- <a class="nav-item nav-link" href="#">Nutrition</a> -->
+                <a class="nav-item nav-link" href="{{ path('profil') }}"><i class="fa fa-user"></i> {{ app.user.prenom }}</a>
+                <a class="nav-item nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+
+                {% else %}
+                <a class="nav-item nav-link" href="{{ path('app_login') }}">Connexion</a>
+                <a class="nav-item nav-link" href="{{ path('app_register') }}">Inscription</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </nav>
+</div>

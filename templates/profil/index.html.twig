@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <!-- <h1 class="text-center my-2">Votre profil</h1> -->
+
+    {% for message in app.flashes('message') %}
+    <div class="my-2 col-12 text-center">
+        <div class="alert alert-dark" role="alert">
+            {{message}}
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="dataperso col-12">
+                <h2 class="my-3">Données personnelles</h2>
+
+                <div class="my-1">
+                    <span class="usersize">Civilité : </span> <span class="usercolor">{{ app.user.civilite}}</span>
+                </div>
+                <div class="my-1">
+                    <span class="usersize">Prénom : </span> <span class="usercolor">{{ app.user.prenom}}</span>
+                </div>
+                <div class="my-1">
+                    <span class="usersize">Nom : </span> <span class="usercolor">{{ app.user.nom}}</span>
+                </div>
+                <div class="my-1">
+                    <span class="usersize">Email : </span> <span class="usercolor">{{ app.user.email}}</span>
+                </div>
+                <div class="my-1">
+                    <span class="usersize">Téléphone : </span> <span class="usercolor">{{ app.user.telephone}}</span>
+                </div>
+                <div class="my-1">
+                    <span class="usersize">Date de naissance : </span> <span class="usercolor">{{ app.user.naissance |
+                        date('d-m-Y')}}</span>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="datasantro col-12">
+                <h2 class="my-3">Données anthropométriques</h2>
+
+                <div class="my-1">
+                    <span class="usersize">Taille : </span> <span class="usercolor">{{ app.user.taille}}</span>
+                </div>
+                <div class="my-1">
+                    <span class="usersize">Poids : </span> <span class="usercolor">{{ app.user.poids}}</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <a href="{{ path('profil_edit') }}" class="btn btn-dark col-4 my-1">Modifier le profil</a>
+            <a href="{{ path('profil_editPass') }}" class="btn btn-dark col-4 my-1">Modifier le mot de passe</a>
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

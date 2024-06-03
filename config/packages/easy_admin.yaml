@@ -1,0 +1,77 @@
+easy_admin:
+    site_name: 'FG Perf'
+    formats: 
+        date: d/m/Y
+    # Création des menus
+    design: 
+        menu: 
+            - { label: 'Dashboard', icon: 'dashboard', route: adminDashboard, default: true}  
+            - { entity: 'Categorie', label: 'Catégories', icon:  'book' }
+            - { entity: 'Horaire', label: 'Horaires', icon:  'clock' }
+            - { entity: 'Jour', label: 'Jours', icon:  'calendar-day' }
+            - { entity: 'Reservation', label: 'Réservations', icon:  'calendar-check' }
+            - { entity: 'User', label: 'Utilisateurs', icon:  'user' }
+        # assets:
+        #     css: ['css/custom_backend.css']
+    entities:
+    # Informations à afficher
+        Categorie:
+            class: App\Entity\Categorie
+            form:
+                fields:
+                    - { property: 'nom'}
+            list: 
+                fields:
+                    - nom
+                    - horaires
+                    - reservations 
+        Horaire:
+            class: App\Entity\Horaire
+            form:
+                fields:
+                    - { property: 'categorie'}
+                    - { property: 'jour'}
+                    - { property: 'heure'}
+            list: 
+                fields:
+                    - categorie
+                    - jour
+                    - heure                    
+                    - reservations
+        Jour:
+            class: App\Entity\Jour
+            form: 
+                fields:
+                    - { property: 'date' , type_options: { widget: 'single_text' } }
+                    - { property: 'nom' }
+            list: 
+                fields:
+                    - nom
+                    - date
+        Reservation:
+            class: App\Entity\Reservation
+            list: 
+                fields:
+                    - categorie
+                    - jour
+                    - horaire                    
+                    - prenom
+                    - telephone
+        User:
+            class: App\Entity\User
+            label: 'Utilisateurs'
+            list: 
+                fields:
+                    - { property: 'civilite'}
+                    - prenom
+                    - nom
+                    - naissance
+                    - telephone
+                    - email
+                    - taille
+                    - poids
+                    - { property: 'roles', label: 'Rôles', type: json_array}
+            form:
+                fields:
+                    - email
+                    - { property: 'roles', label: 'Rôles', type: choice, type_options: {expanded: true, multiple: true, choices: {'Utilisateur':'ROLE_USER', 'Administrateur':'ROLE_ADMIN'}}}

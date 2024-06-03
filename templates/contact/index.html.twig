@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+{% for message in app.flashes('message') %}
+<div class="alert alert-dark d-flex justify-content-center" role='alert'>
+    {{ message }}
+</div>
+{% endfor %}
+
+
+<h1 class="my-4 text-center">Nous contacter</h1>
+
+<div class="d-flex flex-wrap m-5">
+    <div class="text-center m-auto col-lg-6">
+        <p class="infosContact"><i class="fas fa-mobile-alt"></i> 06 50 09 90 57</p>
+        <p class="infosContact"><i class="fas fa-map-marker-alt"></i> Cergy et alentours</p>
+    </div>
+    <div class="col-lg-6">
+        {{ form_start(contactForm) }}
+
+        {{ form_row(contactForm.prenom, { label: 'Votre prénom' } ) }}
+        {{ form_row(contactForm.email, { label: 'Votre email' } ) }}
+        {{ form_row(contactForm.message, { label: 'Votre message' } ) }}
+        <button type="submit" class="btn btn-dark">Envoyer</button>
+
+        {{ form_end(contactForm) }}
+    </div>
+</div>
+
+
+{% endblock %}

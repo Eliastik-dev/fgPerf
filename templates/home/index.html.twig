@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FG Perf{% endblock %}
+
+
+{% block body %}
+
+
+<div class="text-center">
+    <div class="logoCitation m-5">
+        <img src="img/logo.jpg" alt="logo" style="width: 550px;" class="logo mt-5"> 
+    </div>
+    <div class="citation">
+        <i class="fas fa-quote-left"></i>
+        <p>Je détestais chaque minutes de mon entrainement <br> mais je me disais <br> Souffre maintenant et tu vivras le reste de ta vie en champion.</p>
+        <i class="fas fa-quote-right"></i> <br>
+        <p>- Mohamed Ali</p>
+    </div>
+</div>
+    
+    <div class="videoHome">
+        <video width="100%" controls muted loop preload autoplay poster="presentation.MP4">
+            <source src="{{asset("clip/presentation.MP4")}}">
+        </video>
+    </div>
+    
+
+
+    <div class="descriptifOffre">
+
+        <div class="objPerf col-lg-5">
+            <h2>Objectif performances</h2> <br>
+            <p>Préparation physique <br><br>
+                Réathlétisation <br><br>
+                Optimisation des performances <br><br>
+                Programme hypertrophie <br><br>
+                Programme force</p>
+        </div>
+
+        <div class="objSante col-lg-5">
+            <h2>Objectif santé</h2> <br>
+            <p>Reprise du sport <br><br>
+                Perte de poids</p>
+        </div>
+
+        <div class="suiviPerso col-lg-5">
+            <h2>Suivi</h2> <br>
+            <p>Personnalisé <br><br>
+                En entretient ou à distance</p>
+        </div>
+
+        <div class="seanceType col-lg-5">
+            <h2>Séances</h2> <br>
+            <p>En extérieur <br><br>
+                <span class="text-uppercase"> à </span> votre domicile <br><br>
+
+                Matériels fournis<br> en fonction de la séance <br>
+                <span class="materiel">(Elastiques de résistance, <br>Tapis, TRX, Swiss Ball <br> Medecine Ball, Bosu,
+                    <br>Kettlebell, Poids)</span>
+            </p>
+        </div>
+
+        <div class="tarif col-lg-5">
+            <h2>Tarif</h2> <br>
+            <p>
+                Tarif correspondant à une séance <br> d'environ 1h <br>
+                En fonction de la forme du jour <br> de l'objectif <br> et du nombre de séances par semaine
+                <hr>
+                <i class="far fa-money-bill-alt"></i>
+                <i class="far fa-credit-card"></i> <br>
+                <i class="fas fa-lock"></i> Paiement en ligne sécurisé
+            </p>
+        </div>
+
+    </div>
+
+{% endblock %}

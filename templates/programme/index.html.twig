@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programme{% endblock %}
+
+{% block body %}
+
+<div class="p-5 text-center">
+    <p>Vous souhaitez recevoir un programme personnalisé?</p>
+    <p>Il vous suffit de remplir ce formulaire</p>
+</div>
+
+
+
+
+{{ form_start(progPerso) }}
+
+{{ form_row(progPerso.sport, { label: 'Sport(s) pratiqué(s)' } ) }}
+
+<div class="row">
+    <div class="col-xs-12 px-3">
+        {{ form_row(progPerso.objectif, { label: 'Votre objectif (séléctionnez un ou plusieurs choix)' } ) }}
+    </div>
+
+    <hr>
+    
+    <div class="col-xs-12 px-3">
+        {{ form_row(progPerso.dvpt, { label: "Développement d'une qualité physique ou énergétique (séléctionnez un
+        ou plusieurs choix)" }) }}
+    </div>
+</div>
+
+{{ form_row(progPerso.experience, { label: 'Votre expérience en salle de sport'} ) }}
+
+<button type="submit" class="btn btn-dark">Valider et payer</button>
+
+{{ form_end(progPerso) }}
+
+
+
+
+{% endblock %}

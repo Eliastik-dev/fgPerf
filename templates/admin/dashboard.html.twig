@@ -1,0 +1,30 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+
+{% block main %}
+
+<link rel="stylesheet" href="{{ asset('css/custom_backend.css') }}">
+
+<h2 class="text-center">Welcome on board</h2>
+
+<div class="row p-5">
+    <div class="col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fas fa-users"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Utilisateur(s)</span>
+                <span class="info-box-number">{{ userCount }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fas fa-bookmark"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Réservation(s)</span>
+                <span class="info-box-number">{{ resaCount }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
